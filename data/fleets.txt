@@ -1456,6 +1456,25 @@ fleet "Quarg"
 	variant
 		"Quarg Wardragon"
 
+fleet "Large Quarg"
+	government "Quarg"
+	names "quarg"
+	cargo 0
+	personality
+		forbearing
+	variant 1
+		"Quarg Skylark"
+		"Quarg Wardragon" 2
+	variant 1
+		"Quarg Skylark" 2
+	variant 1
+		"Quarg Wardragon" 5
+	variant 2
+		"Quarg Wardragon"
+		"Quarg Skylark" 2
+	variant 3
+		"Quarg Skylark" 5
+
 fleet "Small Pug"
 	government "Pug"
 	names "pug"
