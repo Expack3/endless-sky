@@ -63,7 +63,7 @@ ship "Aerie"
 ship "Argosy"
 	sprite "ship/argosy"
 	attributes
-		category "Heavy Freighter"
+		category "Light Freighter"
 		"cost" 1560000
 		"shields" 4200
 		"hull" 2600
@@ -290,7 +290,7 @@ ship "Behemoth"
 		"drag" 11.7
 		"heat dissipation" .4
 		"fuel capacity" 600
-		"cargo space" 420
+		"cargo space" 490
 		"outfit space" 510
 		"weapon capacity" 280
 		"engine capacity" 90
@@ -326,6 +326,51 @@ ship "Behemoth"
 	explode "big explosion" 35
 	explode "huge explosion" 20
 	description "The Behemoth is a recent ship design from Betelgeuse Shipyards, designed as an alternative to the Syndicate Bulk Freighter. Although its cargo capacity is somewhat lower, it is also more maneuverable, and packs a heavier armament by default."
+
+
+
+ship "Berserker"
+	sprite "ship/berserker"
+	attributes
+		category "Interceptor"
+		"cost" 520000
+		"shields" 2200
+		"hull" 500
+		"required crew" 1
+		"bunks" 2
+		"mass" 110
+		"drag" 2.2
+		"heat dissipation" .85
+		"fuel capacity" 400
+		"cargo space" 10
+		"outfit space" 200
+		"weapon capacity" 35
+		"engine capacity" 65
+		weapon
+			"blast radius" 30
+			"shield damage" 300
+			"hull damage" 150
+			"hit force" 450
+	outfits
+		"Beam Laser" 4
+		
+		"nGVF-CC Fuel Cell"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -10 45
+	engine 10 45
+	gun -20 12
+	gun 20 12
+	gun -44 10
+	gun 44 10
+	explode "tiny explosion" 10
+	explode "small explosion" 15
+	description "Once one of the most popular interceptor-class ships, the Berserker's popularity is now waning in favor of more modern and versatile ships like the Hawk. Although limited numbers are still produced by Betelgeuse Shipyards, most Berserkers that are in service today are more than half a century old."
 
 
 
@@ -629,7 +674,7 @@ ship "Corvette"
 	attributes
 		category "Light Warship"
 		"cost" 4400000
-		"shields" 6400
+		"shields" 6100
 		"hull" 1200
 		"required crew" 8
 		"bunks" 32
@@ -895,8 +940,8 @@ ship "Firebird"
 	sprite "ship/firebird"
 	attributes
 		category "Light Warship"
-		"cost" 4000000
-		"shields" 6100
+		"cost" 3700000
+		"shields" 6400
 		"hull" 2800
 		"required crew" 7
 		"bunks" 22
@@ -939,6 +984,50 @@ ship "Firebird"
 	explode "medium explosion" 24
 	explode "big explosion" 8
 	description "The Betelgeuse Shipyards Firebird is a warship with a long and storied past; Firebirds fought on both sides of the Alpha Wars nearly half a millennium ago, and although the equipment and systems have been upgraded continuously since then, the basic design remains almost the same. The Firebird is also a very rugged ship and easy to repair; supposedly a few of the Firebirds that fought in those wars are still in service today."
+
+
+
+ship "Flivver"
+	sprite "ship/flivver"
+	attributes
+		category "Transport"
+		"cost" 180000
+		"shields" 1400
+		"hull" 200
+		"required crew" 1
+		"bunks" 3
+		"mass" 40
+		"drag" 1.0
+		"heat dissipation" .9
+		"fuel capacity" 500
+		"cargo space" 5
+		"outfit space" 130
+		"weapon capacity" 25
+		"engine capacity" 45
+		weapon
+			"blast radius" 16
+			"shield damage" 160
+			"hull damage" 80
+			"hit force" 240
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 70
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"A120 Atomic Thruster"
+		"X1200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -16 27
+	engine 16 27
+	gun -6 -31
+	gun 6 -31
+	explode "tiny explosion" 10
+	explode "small explosion" 10
+	description "With space for neither cargo nor passengers nor heavy weaponry, the Flivver's only selling point is speed. Flivvers are sold mostly to wealthy individuals who want to be able to travel the stars without needing to share a bunk room on a merchant transport with common people."
 
 
 
@@ -1077,12 +1166,12 @@ ship "Fury"
 		"X2200 Ion Steering"
 		"Hyperdrive"
 		
-	engine -20 36
-	engine 20 36
-	gun -10 -32
-	gun 10 -32
-	gun -16 -22
-	gun 16 -22
+	engine -17 35
+	engine 17 35
+	gun -10 -26
+	gun 10 -26
+	gun -16 -20
+	gun 16 -20
 	explode "tiny explosion" 10
 	explode "small explosion" 20
 	description "The Fury is Southbound Shipyard's most popular design of escort ship. They have greater firepower than any other interceptor-class vessel, meaning that any pirate flying solo will think twice before attacking a convoy that is accompanied by a Fury. However, Furies are also much less maneuverable than other small ships."
@@ -1139,6 +1228,162 @@ ship "Gunboat"
 
 
 
+ship "Hauler"
+	sprite "ship/hauler i"
+	attributes
+		category "Light Freighter"
+		"cost" 1430000
+		"shields" 2500
+		"hull" 3700
+		"required crew" 3
+		"bunks" 12
+		"mass" 250
+		"drag" 10.5
+		"heat dissipation" .6
+		"fuel capacity" 400
+		"cargo space" 130
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 70
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -45 122
+	engine 45 122
+	gun -15 -91
+	gun 15 -91
+	turret -26 -49 "Quad Blaster Turret"
+	turret 26 -49 "Heavy Anti-Missile Turret"
+	turret -19 77 "Heavy Anti-Missile Turret"
+	turret 19 77 "Quad Blaster Turret"
+	explode "tiny explosion" 20
+	explode "small explosion" 35
+	explode "medium explosion" 20
+	explode "big explosion" 5
+	description "Several centuries ago, in the early days of the Republic, the sudden increase in commerce and space travel led to high demand for cargo ships. Haulers were first created simply by bolting a cockpit and engine block onto a cargo container, and the basic design has not changed much since then."
+
+
+
+ship "Hauler II"
+	sprite "ship/hauler ii"
+	attributes
+		category "Heavy Freighter"
+		"cost" 2340000
+		"shields" 2900
+		"hull" 5200
+		"required crew" 3
+		"bunks" 12
+		"mass" 360
+		"drag" 11.5
+		"heat dissipation" .6
+		"fuel capacity" 400
+		"cargo space" 260
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 70
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -45 160
+	engine 45 160
+	gun -15 -128
+	gun 15 -128
+	turret -26 -85 "Quad Blaster Turret"
+	turret 26 -85 "Heavy Anti-Missile Turret"
+	turret -19 115 "Heavy Anti-Missile Turret"
+	turret 19 115 "Quad Blaster Turret"
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 30
+	explode "big explosion" 15
+	description "This is a mid-sized freighter, designed for a balance between cargo capacity and defensive capability. Centuries ago, various Hauler models made up nearly half of the merchant vessels in service, but today the design is considered somewhat outdated."
+
+
+
+ship "Hauler III"
+	sprite "ship/hauler iii"
+	attributes
+		category "Heavy Freighter"
+		"cost" 3260000
+		"shields" 3300
+		"hull" 6700
+		"required crew" 3
+		"bunks" 12
+		"mass" 470
+		"drag" 12.5
+		"heat dissipation" .6
+		"fuel capacity" 400
+		"cargo space" 360
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 70
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -45 196
+	engine 45 196
+	gun -15 -165
+	gun 15 -165
+	turret -26 -122 "Quad Blaster Turret"
+	turret 26 -122 "Heavy Anti-Missile Turret"
+	turret -19 151 "Heavy Anti-Missile Turret"
+	turret 19 151 "Quad Blaster Turret"
+	explode "small explosion" 15
+	explode "medium explosion" 30
+	explode "big explosion" 20
+	explode "huge explosion" 5
+	description "Considered by many to be outdated, there are nonetheless many Haulers still in service due to their combination of comparatively low price and simple construction. This large version of the Hauler provides the best tradeoff between price and cargo space."
+
+
+
 ship "Hawk"
 	sprite "ship/hawk"
 	attributes
@@ -1172,10 +1417,10 @@ ship "Hawk"
 		"Greyhound Plasma Steering"
 		"Hyperdrive"
 		
-	engine -13 36
-	engine 13 36
-	gun -13 -11
-	gun 13 -11
+	engine -24 41
+	engine 24 41
+	gun -9 -17
+	gun 9 -17
 	explode "tiny explosion" 15
 	explode "small explosion" 5
 	description "The Tarazed Hawk is an interceptor-class warship often used as an escort for freighters or in a planetary militia's patrol squadron. Hawks are fast enough to chase down most smaller ships, while also being much more heavily armed and armored. They are also, of course, a favorite ship of pirate captains who have earned enough money to afford one."
@@ -1790,10 +2035,10 @@ ship "Sparrow"
 		"Chipmunk Plasma Steering"
 		"Hyperdrive"
 		
-	engine -4 35
-	engine 4 35
-	gun -7 -9
-	gun 7 -9
+	engine -5 35
+	engine 5 35
+	gun -7 -10
+	gun 7 -10
 	explode "tiny explosion" 15
 	explode "small explosion" 5
 	description "Classified as an interceptor rather than a fighter because it has its own hyperdrive instead of needing to be carried inside a larger ship, the Tarazed Sparrow is the smallest and cheapest combat ship available. Because of its limited cargo and passenger space, the primary way for a Sparrow pilot to pay the bills is by hunting pirates... or by becoming one. In either case, it is a perilous way to earn a living."

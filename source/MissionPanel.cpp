@@ -149,7 +149,7 @@ void MissionPanel::Draw() const
 // Only override the ones you need; the default action is to return false.
 bool MissionPanel::KeyDown(SDL_Keycode key, Uint16 mod, const Command &command)
 {
-	if(key == 'd')
+	if(key == 'd' || (key == 'w' && (mod & (KMOD_CTRL | KMOD_GUI))))
 	{
 		GetUI()->Pop(this);
 		return true;
@@ -545,8 +545,12 @@ bool MissionPanel::CanAccept() const
 void MissionPanel::Accept()
 {
 	const Mission &toAccept = *availableIt;
-	int cargoToSell = toAccept.CargoSize() - player.Cargo().Free();
-	int crewToFire = toAccept.Passengers() - player.Cargo().Bunks();
+	int cargoToSell = 0;
+	if(toAccept.CargoSize())
+		cargoToSell = toAccept.CargoSize() - player.Cargo().Free();
+	int crewToFire = 0;
+	if(toAccept.Passengers())
+		crewToFire = toAccept.Passengers() - player.Cargo().Bunks();
 	if(cargoToSell > 0 || crewToFire > 0)
 	{
 		ostringstream out;
