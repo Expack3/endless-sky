@@ -19,28 +19,27 @@ mission "Republic Confrontation"
 		not "chosen sides"
 		has "FW Commitment: active"
 		"assisted Republic" >= 3
-	to fail
-		has "chosen sides"
-		"reputation: Republic" >= 20
+	to complete
+		not  "chosen sides"
+		"reputation: Republic" < 20
 	on offer
 		conversation
 			`You can't help but feel like you've been followed ever since you left the Free Worlds headquarters. Things like convoys traveling routes they'd never taken before, Republic Navy ships in your vicinity making more thourough scans than usual...`
-			`You land on <origin>, exit the ship to go look at the local infograms. Having read the articles of interest, you enter the bar. After getting a mug of the local speciality, you sit down in a booth all by your lonesome.`
+			`	You land on <origin>, exit the ship to go look at the local infograms. Having read the articles of interest, you enter the bar. After getting a mug of the local speciality, you sit down in a booth all by your lonesome.`
 `That's when a Navy officer sits down next to you.`
-			`"Hello, Captain <last>," the officer says, "I see you got the 'Local Special'. Don't you just hate that generic name? It seems like creativity went out the window when human civilization figured out how to sustain itself on a galactic scale.`
+			`"	Hello, Captain <last>," the officer says, "I see you got the 'Local Special'. Don't you just hate that generic name? It seems like creativity went out the window when human civilization figured out how to sustain itself on a galactic scale.`
 			choice
-				`	(Continue listening.)`
-				`	"Yeah. Why can't they give these drinks creative names, like "Blue Blazer", "Warp Core Breach", or "Womehole Puke"?"`
 				`	"Cut to the chase."`
 					goto the_point
+				`	(Continue listening.)`
+				`	"Yeah. Why can't they give these drinks creative names, like "Blue Blazer", "Warp Core Breach", or "Womehole Puke"?"`
 				`	"I know why you're here. Your cronies weren't very discrete."`
 					goto properly_paranoid1
-			`"All the buildings we make are just ripped straight from a 21st-century piece of entertainment; our ships just rehashes of ideas created by science fiction authors from far-away times. Even the name for the device enabling intergalactic travel is taken from a science-fiction film!"`
-			`"Heck, even government names are simple these days!" the officer says with a dismayed tone, "like, say, Free Worlds."`
+			`	"Couldn't agree more! Heck, even government names are simple these days," the officer says with a dismayed tone, "like, say, Free Worlds."`
 			choice
-				`	"You're here about the committment letter, then."`
 				`	"Get to the point."
 					goto the_point
+				`	"You're here about the committment letter, then."`
 			` "Yes, I am," the officer says matter-of-factly. "I'm here to offer you another option, Captain." "Do tell," you inquisitively state.
 			goto the_key
 			label the_point
@@ -52,24 +51,18 @@ mission "Republic Confrontation"
 				`	"Who isn't?"`
 					goto still_the_point
 				`	"Did your superiors honestly think harrassing people who are merely enacting their right to seccession wouldn't have consequences?"`
-				`"Serves you right. As far as I'm concerned, it wasn't enough!"`
-			`Pulling out a holo-copy of the Constitution of the Republic of Planets, the officer says in an increasingly-angry tone, "Honest seccessionists don't resist search for illict materials, they don't harass or threaten diplomats sent to offer secceeding systems a chance to return to the Republic...," highlighting the sections of the constitution the Free Worlds allegedly violated...` 
-			`"...and they certainly don't launch unprovoked attacks on populated planets - let alone with nuclear weapons!" With that, he slams the table with his fist for empahsis.`
-			branch mad_rant
-				has "Pact Recon 1: done"
+				`	"Serves you right. As far as I'm concerned, it wasn't enough!"`
+			`	Pulling out a holo-copy of the Constitution of the Republic of Planets, the officer says in an increasingly-angry tone, "Honest seccessionists don't resist search for illict materials, they don't harass or threaten diplomats sent to offer secceeding systems a chance to return to the Republic...," highlighting the sections of the constitution the Free Worlds allegedly violated...` 
 			`The officer continues, "Did the Free Worlds ever mention any part of their history to you, Captain <last>? How they violated the very part of the Republic's constitution which enabled them to separate from us?"` 
 			`His voice and demeanor become more intense, "Why they secretly built up a stockpile of nuclear arms - weapons still as deadly and as powerful as they were when they were invented all the way back in 1941 - in order to attack highly-populated areas and punctuate their ascencion from a mutual defense pact to an interplanetary government?"` 
 			`Then, staring right at you, "Or did you think they were the honest, David-esque figures fighting back against the abusive, modern-day Goliath they claimed they were?"`
-			label mad_rant
-			`The officer continues, "Did the Southern Mutual Defense Pact ever mention any of this to you? How they violated the very part of the Republic's constitution which enabled them to separate from us?"` 
-			`His voice and demeanor become more intense, "Why they secretly built up a stockpile of nuclear arms - weapons still as deadly and as powerful as they were when they were invented all the way back in 1941 - in order to attack highly-populated areas and puncuate their announcement of becoming the Free Worlds?" 
-			`Then, staring right at you, "Or did you think they were the honest, David-esque figures ecking a living away from the abusive, modern-day Goliath they claimed they were?"`
+from the abusive, modern-day Goliath they claimed they were?"`
 			choice
+				`	"Get out of my booth."`
+					goto astrieck_you
 				`	"And how do you know the people responsible for the nukings were aligned with the Free Worlds?"`
 				`	(Stare stunned at the officer.)`
 					goto stunned_confrontation
-				`	"Get out of my booth."`
-					goto astrieck_you
 			`"I'm not surprised you doubt me, Captain," the officer says in an understanding tone, "The act, while fitting with their stated agenda, might seem extreme even for the Free Worlds."`
 			`"But it seems you lack much knowledge about the their history. Do you know what Ulysses, a great philosopher of the Roman tradition, once asked an opponent ignorant of the history of his own people, the very civilization he was arguing for?" "No," you truthfully reply.`
 			`"'Who are you, that you do not know your own history?'"`
@@ -80,7 +73,9 @@ mission "Republic Confrontation"
 			`Shaking his head and giving a heavy sigh, the officer says, "I was hoping you'd listen to reason. But if you're going to be a hard-nose about this, so be it." As he gets up, the officer says, "If you change your mind, come to Sol and join us in the fight against the Free Worlds." With that, he leaves the booth.`
 				accept
 			label still_the_point
-			`"Then why not join the side which didn't use weapons of mass destruction, let alone attack another government without provocation?" the officer inquires. "We're looking for good pilots to join the fight against the Free Worlds. If you're interested, come see our recruiters on Sol." You look nonplussed at the officer, having heard similar speils on the galnet. "I know," the officer says sheepishly, "it's a bad recruitment speil - certainly nothing compared to a formal, no-threats-attached committment letter. But I thought I'd offer it anyways."`
+			`"Then why not join the side which didn't use weapons of mass destruction, let alone attack another government without provocation?" the officer inquires. "We're looking for good pilots to join the fight against the Free Worlds. If you're interested, come see our recruiters on Sol."` 
+			`You look nonplussed at the officer, having heard similar speils on the galnet.` 
+			`"I know," the officer says sheepishly, "it's a bad recruitment speil - certainly nothing compared to a formal, no-threats-attached committment letter. But I thought I'd offer it anyways."`
 			`With that, the officer shakes your hand and leaves.`
 				accept
 			label properly_paranoid1
@@ -114,7 +109,7 @@ mission "Republic Confrontation"
 			`"Then let me offer you 500,000 credits - not in bonds, but in cold, hard credits - right here, right now, as a token of the Republic's seriousness in wanting you on our side."`
 			`You blurt out something rude in shock.`
 			`"I'm being serious," the officer says, smiling at you as he gets up. "Come to Sol, Captain <last>. We've got an excellent section of goods, top-notch outfitters, and the Navy's shipyard is open to the public - all waiting for you to spend that money I promised you..."`
-			`"...That is, if you'll join us." With that, the officer leaves the booth - and you appropriately stunned.`
+			`"...that is, if you'll join us." With that, the officer leaves the booth - and you appropriately stunned.`
 				set "republic_money_bonus"
 				accept
 			label powermonger
@@ -140,8 +135,8 @@ mission "Cargo Run 0[Outside Alpha Centauri]"
 		random < 100
 		not "event: war begins"
 		not "system: Alpha Centauri"
-	to fail
-		"event: war begins"
+	to complete
+		not "event: war begins"
 	on offer
 		conversation
 			`As you wander around the starport, you spy a young, slightly-pudgy female engineer wearing Republic colors looking axiously down at a datapad. Looking up, the engineer spots you and rushes over to you.`
@@ -150,22 +145,22 @@ mission "Cargo Run 0[Outside Alpha Centauri]"
 				`	"Yes."
 				`	"I'm a freighter captain, but I'm not looking for work right now."
 					decline
-			`The engineer stands stiffly-straight before you, like someone trying to stand straight for their commander but being too nervous to do so, and just as stiffy starts, "My name is Lieutennant Juno Forensies, and I am an engineer with Squadron #234 of the Republic Navy. We are currently looking for a freighter captain to supply our forces throughout the Republic's theaters of operations."
+			`	The engineer stands stiffly-straight before you, like someone trying to stand straight for their commander but being too nervous to do so, and just as stiffy starts, "My name is Lieutennant Juno Forensies, and I am an engineer with Squadron #234 of the Republic Navy. We are currently looking for a freighter captain to supply our forces throughout the Republic's theaters of operations."
 			choice
 				`	(Continue listening.)
 					goto more_intro
 				`	"This is your first time, isn't it?"
-			`Juno is briefly shocked, not expecting to be read so easily. Recovering, she replies, "It is. I'm used to repairing ships, not recruitment." Sighing, she adds, "But orders are orders..."`
+			`	Juno is briefly shocked, not expecting to be read so easily. Recovering, she replies, "It is. I'm used to repairing ships, not recruitment." Sighing, she adds, "But orders are orders..."`
 			choice
-				`	"Your commanding officer must've seen potential in you to have given you this assignment."`
 				`	"No sweat."
-						goto no_confidence
+					goto no_confidence
+				`	"Your commanding officer must've seen potential in you to have given you this assignment."`
 				`	"You'll learn it."
-			`Juno smiles, though showing a hint of her embarassment and nerveousness, and says, "Thank you. I really appreciate the confidence!"`
+			`	Juno smiles, though showing a hint of her embarassment and nerveousness, and says, "Thank you. I really appreciate the confidence!"`
 			label no_confidence
 			`Clearing her throat, Juno continues her recruitment speech.`
 			label more_intro
-			`"The job is temporary, so you wouldn't be tied down with a long-term contract and be freer to take other assignments. The pay is based on the cargo, distance to travel, and whether the delivery is high-priority, so I do not have any concrete numbers at this point."`
+			`	"The job is temporary, so you wouldn't be tied down with a long-term contract and be freer to take other assignments. The pay is based on the cargo, distance to travel, and whether the delivery is high-priority, so I do not have any concrete numbers at this point."`
 			`"Would you be interested?"
 			choice
 				`	"Yes."`
@@ -173,19 +168,17 @@ mission "Cargo Run 0[Outside Alpha Centauri]"
 				`	"Unfortunately, no."`
 					goto cargo0_decline
 			label cargo0_accept
-			`"Excellent. I'll just need your name and ship registration information, then I'll give you the coordinates."
+			`	"Excellent. I'll just need your name and ship registration information, then I'll give you the coordinates."
 			branch has_licensea
 				has "license: Pilot's"
-			`You remember at the last minute you lack a Republic pilot's license and ask Juno if this will be a problem. Surprised at this development, she says, "It will be. The contract requires the Captain to be licensed under the Republic of Planets, so I am afraid this makes you ineligible. Good day, Captain."`
+			`	You remember at the last minute you lack a Republic pilot's license and ask Juno if this will be a problem. Surprised at this development, she says, "It will be. The contract requires the Captain to be licensed under the Republic of Planets, so I am afraid this makes you ineligible. Good day, Captain."`
 				decline
 			label "has_licensea"				
-			`You and Juno exchange information. "Thank you, Captain <last>. Have a good day!"`
+			`	You and Juno exchange information. "Thank you, Captain <last>. Have a good day!"`
 				accept
 			label cargo0_decline
-			`Juno, despite trying to retain her professional appearance, is clearly dissapointed. "Thank you for your time, Captain," she stiffly says, and walks away.`
+			`	Juno, despite trying to retain her professional appearance, is clearly dissapointed. "Thank you for your time, Captain," she stiffly says, and walks away.`
 				decline
-	on fail
-		dialog "End of an Era"
 
 mission "Cargo Run 1"
 	name "Cargo run to <planet>"
@@ -199,8 +192,8 @@ mission "Cargo Run 1"
 	to offer
 		has "Intro [0]: offered"
 		not "event: war begins"
-	to fail
-		has "event: war begins"
+	to complete
+		not "event: war begins"
 	on offer
 		conversation
 			branch has_offer1
@@ -210,50 +203,45 @@ mission "Cargo Run 1"
 				`	"...answer the hail."`
 				`	"...ignore the hail."`
 					decline
-				`A video feed of a slightly-pudgy female engineer wearing Republic colors is projected on your ship's HUD. She is alternating between looking nerveously down at what looks like a datapad and talking with someone off-camera. The person off-camera seems to have told her someone answered the sponsored hail, startling her into action. She then speaks to you....` 
-			`"Hello, Captain. My name is Juno Forensies, and I'm a lieutenant with the Republic Navy's Squadron #234. We're currently looking for independent captains interested in performing a cargo run for us. I just need your name and ship registration information, and I'll give you the coordinates of our hangar so you can move your ship and be briefed by my commanding officer."`
+				`	A video feed of a slightly-pudgy female engineer wearing Republic colors is projected on your ship's HUD. She is alternating between looking nerveously down at what looks like a datapad and talking with someone off-camera. The person off-camera seems to have told her someone answered the sponsored hail, startling her into action. She then tells you about a position with Republic Navy squadron #234, codename Gettems, with good pay based on the job.
 			branch has_licenseb
 				has "license: Pilot's"
-			`You remember at the last minute you lack a Republic pilot's license and ask Juno if this will be a problem. Surprised at this development, she says, "It will be. The contract requires the Captain to be licensed under the Republic of Planets, so I'm afraid this makes you ineligible. Good day, Captain."`
+			`	Unfortunately, you remember at the last minute you lack a Republic pilot's license and ask Juno if this will be a problem. Surprised at this development, she says, "It will be. The contract requires the Captain to be licensed under the Republic of Planets, so I'm afraid this makes you ineligible. Good day, Captain."`
 				decline
 			label "has_licenseb"	
-			`You exchange information, and re-route your ship to the hangar indicated by Juno's coordinates.`
-			`After you land in the hangar in the position indicated on your HUD, you open your ship's bay doors, only to be met by several armed Republic Navy engineers and the commander they accompanied.`
+			`	You exchange information, and re-route your ship to the hangar indicated by Juno's coordinates.`
+			choice
+				`	[Continue...]`
+			`	After you land in the hangar in the position indicated on your HUD, you open your ship's bay doors, only to be met by several armed Republic Navy engineers and the commander they accompanied.`
 				goto cargo1_intro
 			label has_offer1
-			`You begin your approach towards <origin> and the hangar indicated by the coordinates Juno gave you. As you get closer, your ship is automatically scanned, identified, and cleared by the hangar's (presumably) millitary-grade LS-ACRM (Large Scale ACcess Rights Management) system.`
+			`	You begin your approach towards <origin> and the hangar indicated by the coordinates Juno gave you. As you get closer, your ship is automatically scanned, identified, and cleared by the hangar's (presumably) millitary-grade LS-ACRM (Large Scale ACcess Rights Management) system.`
 			label cargo1_intro
-			`After you land in the hangar in the position indicated on your HUD, you open your ship's bay doors, only to be met by several armed Rupublic Navy engineers and the commander they accompanied.`
-			`The commander is an older gentleman, likely in his 90's. His uniform is ill-fitting, dirty, and looks like it's been handed down from commander to commander. Despite his age and the onset of aging causing his skin to begin to sag, his body seems in remarkable shape, and he seems full of energy. Despite the energy displayed in his every movement, he expends none of it on his voice as he wearily speaks to you.`
-			`"Welcome to Squadron #234, Captain <last>. The squadron, which we like to call the Gettems, is one of only three engineering squads in the entire Republic Navy, meaning we're tasked with assisting bases and other squadrons with engineering tasks. My name is Malcom Varsees, and I am the commanding officer for this squad. I understand Lieutennant Forensies recruited you to take on a cargo run for us."`
+			`	After you land in the hangar in the position indicated on your HUD, you open your ship's bay doors, only to be met by several armed Rupublic Navy engineers and the commander they accompanied.`
+			`	The commander is an older gentleman, likely in his spry 90's. His uniform is ill-fitting, dirty, and looks like it's been handed down from commander to commander. He dryly introduces himself:`
+			`	"Welcome to Squadron #234, Captain <last>. The squadron, which we like to call the Gettems, is one of only three engineering squads in the entire Republic Navy, meaning we're tasked with assisting bases and other squadrons with engineering tasks. My name is Malcom Varsees, and I am the commanding officer for this squad. I understand Lieutennant Forensies recruited you to take on a cargo run for us."`
 			choice
 				`	"Yes, sir."`
 						goto cargo1a_exp
 				`	"Why are..."`
-			`"No questions until after I explain the assignment, Captain," Malcom barks at you.`
+			`	"No questions until after I explain the assignment, Captain," Malcom barks at you.`
 			label cargo1a_exp
-			`"As any Republic citizen can tell you - and I hope that includes you, Captain - <planet> is the best-known retirement planet on the face of the known galaxy."`
-			branch i_know_james
-				has "intro_missions_complete"
-			`"Indeed it is," you think to yourself. You've only seen the exteriors of the glamarous retirement centers on <planet> as you were forced to land in its comparatively-bland public spaceport with the rest of the 'poor' commoners, while luxerious images of the many ammenities and luxories the rich enjoyed were advertised regularly on the terminal holoscreens.`
-				goto cargo1a_stillexp
-			label i_know_james
-			`"I should know," you pipe up, "I got to see inside the private terminal as I dropped off a retired space captain named James. They live rich!"`
-			`Malcom glares at you for interrupting him. Feeling quite embarrased, you shut up for the remainder of the commander's briefing. (You also feel yourself suddenly standing awfully straight.)`
-			label cargo1a_stillexp
-			`"The Republic Navy has a small outpost on <planet>, which we use to recruit the 'poor' citizens and entertain the retirees with air shows and new weapon demonstrations. In short, we liberate the poor of <planet> while entertaining their rich oppressors."`
-			`The commander continues, showing some contempt in his voice, "Unfortunately, part of entertaining the <planet>'s rich means maintaining a small demonstration fleet of drones which can be shot at, and said fleet can't have its own dedicated maintenance squad - which is where the Gettems come in. We're assembling a group of freighters to perform regular supply runs so the rest of the squad can focus on more pressing work elsewhere in Republic space."`
-			`"You have until <day> to deliver the supplied <cargo> to <destination>. You'll be paid 5 times what you'd make if you traded <commodity> between <origin> and <planet> upon delivery."`
-			`Malcom looks at you briefly, then gives a slight smile. "Now you may ask questions, Captain <last>."`
+			`	"As any Republic citizen can tell you - and I hope that includes you, Captain - <planet> is the best-known retirement planet on the face of the known galaxy."`
+			`	"The Republic Navy has a small outpost on <planet>, which we use to recruit the 'poor' citizens and entertain the retirees with air shows and new weapon demonstrations. In short, we liberate the poor of <planet> while entertaining their rich oppressors."`
+			`	The commander continues, showing some contempt in his voice, "Unfortunately, part of entertaining the <planet>'s rich means maintaining a small demonstration fleet of drones which can be shot at, and said fleet can't have its own dedicated maintenance squad - which is where the Gettems come in. We're assembling a group of freighters to perform regular supply runs so the rest of the squad can focus on more pressing work elsewhere in Republic space."`
+			choice
+				`	[Continue...]`
+			`	"You have until <day> to deliver the supplied <cargo> to <destination>. You'll be paid 5 times what you'd make if you traded <commodity> between <origin> and <planet> upon delivery."`
+			`	Malcom looks at you briefly, then gives a slight smile. "Now you may ask questions, Captain <last>."`
 			label mission1a_choices
 			choice
+				`	"None, Cmd. Varsees."`
 				`	"Why does the squadron call itself the Gettems?"`
 					goto first_gettems_expa
 				`	"Do you really believe the Republic is playing Robin Hood on <planet>? Stealing away the poor from the clutches of the rich?"`
 					goto non_answer1a
 				`	"Will I be getting any escorts?"`
 					goto straight_no1a
-				`	"None, Cmd. Varsees."`
 			`"Good. I'll have the cargo loaded on your ship so you can be on your way." Malcom quickly extends his arm, shows a beaming smile, and says, "Welcome aboard, Captain <last>. I look forward to working with you."`
 				accept
 			label first_gettems_exp
@@ -270,8 +258,6 @@ mission "Cargo Run 1"
 		set "first republic cargo mission"
 		dialog
 			`You land at the Navy outpost on <planet>, and after having your goods hauled off your ship by the base's civilian personnel, you see Juno Forensies walking towards you with a datapad. She seems much more relaxed than you last saw her! "Hello again, Captain <last>! Just need your signature, and those <payment> - and an opportunity to work with us again - will be yours." You oblidge and part ways.`
-	on fail
-		dialog "End of an Era"
 	on visit
 		dialog `You are about to land on <planet>'s Navy outpost until you realize you don't have all <cargo> in your ship anymore! You'll have to replace it before you can land.`
 		launch
@@ -288,8 +274,8 @@ mission "Cargo Run 2A"
 	source
 		"government: republic"
 	destination "Chiron"
-	to fail
-		has "event: war begins"
+	to complete
+		not "event: war begins"
 	on offer
 		dialog
 			`You recieve an automated hail from the Gettems, stating they have another contracted cargo run available if you're interested.`
@@ -305,31 +291,27 @@ mission "Cargo Run 2B"
 	source "Chiron"
 	destination "Deep"
 	to offer
-		or
-			has "Cargo Run 1: done"
-			and
-				random < 85
-				not "system: Alpha Centauri"
+		has "Cargo Run 1: done"
 		not "event: war begins"
-	to fail
-		has "event: war begins"
+	to complete
+		not "event: war begins"
 	on offer
 		conversation
 			branch cargo2_offer
-				not "Cargo Run 1: done"
+				not "Cargo Run 2A: done"
 			`As you begin your descent to <origin>, you recieve a message from the Gettems requesting you land at their hangar. You do so and, upon landing, exit your ship to, once again, encounter Cmd. Malcom and a two-engineer escort. In a tone filled with a touch more energy than previously, he says, "Welcome back, Captain <last>. We've got another cargo run for you."`
 				goto cargo2_intro
 			label cargo2_offer
 			`You arrive at the Gettems' hanger on <origin> and exit your ship to, once again, encounter Cmd. Malcom and a two-engineer escort. In a tone filled with a touch more energy than previously, he says, "Welcome back, Captain <last>. We've got another cargo run for you."`
 			label cargo2_intro
-			`"Given the mostly non-violent nature of our work, we frequently assist the Republic's Humanitarian Corps. They're currently aiding the citizens of <planet>, who are dealing with an extended shortage of fish. The Corps engineer assigned to the mission has been having unusual difficulty getting the Corps' replicators working - even with assistance from Poseidon Industries - and has requested our assistance `
-			`Malcom adds, "I speak for the rest of my squad when I say the Corps are the only people in the entire Republic who actually understand our real purpose."`
-			`Continuing, Malcom says, "You'll be transporting <cargo> along with Lt. James Sanders, who will assist the Humanitarian Corps engineer in diagnosing the issues. You'll be paid <payment> this time - mostly for transporting the Lieutennant."`
+			`	"Given the mostly non-violent nature of our work, we frequently assist the Republic's Humanitarian Corps. They're currently aiding the citizens of <planet>, who are dealing with an extended shortage of fish. The Corps engineer assigned to the mission has been having unusual difficulty getting the Corps' replicators working - even with assistance from Poseidon Industries - and has requested our assistance `
+			`	Malcom adds, "I speak for the rest of my squad when I say the Corps are the only people in the entire Republic who actually understand our real purpose."`
+			`	Continuing, Malcom says, "You'll be transporting <cargo> along with Lt. James Sanders, who will assist the Humanitarian Corps engineer in diagnosing the issues. You'll be paid <payment> this time - mostly for transporting the Lieutennant."`
 			`After Malcom finishing speaking, you decide to ask him...`
 			choice
-				`	...whether you'll be getting an escort. The southern reaches of the Republic are well-known for lacking Republic millitary support, after all.`
 				`	...what the timeframe is on the mission.`
 				goto cargorun2_time
+				`	...whether you'll be getting an escort. The southern reaches of the Republic are well-known for lacking Republic millitary support, after all.`
 			`In a serious tone, Malcom tells you, "I'm going to give you the same answer the rest of the Navy will give you: the southern regions are low-priority. Much of the Republic's valuable assets and industries are in the north and east." You swear you could hear a touch of contempt in Malcom's voice, but you conclude you probably imagined it.`
 			`Malcom then continues by explaining the timeframe of the mission.`
 			label cargorun2_time
@@ -339,10 +321,10 @@ mission "Cargo Run 2B"
 				`	"Yes."`
 					goto "cargo2b_interested"
 				`	"I'm afraid not."`
-			`"I see." Malcom replies, dissapointed. "Thank you for working with us, Captain <last>."`
+			`	"I see." Malcom replies, dissapointed. "Thank you for working with us, Captain <last>."`
 				decline
 			label cargo2b_interested
-			`Once again, Malcom gives you a handshake, a hearty smile, and sends you off on your mission.`
+			`	Once again, Malcom gives you a handshake, a hearty smile, and sends you off on your mission.`
 				accept
 	on complete
 		conversation
@@ -351,63 +333,60 @@ mission "Cargo Run 2B"
 				`	"No thanks."
 					goto cargo2_epilogue1
 				`	"Sure, why not?"`
-			`You follow Lt. Sanders and the small crew of spaceport workers transporting the cargo along the winding paths to the main population center. There you see the Humanitarian Corps engineer trying to repair a replicator, with the Poseidon Industries engineer supervising.` 
-			`Upon getting closer, it becomes clear why the replicators have been so difficult to repair. Not only does the engineer not have the correct tools for replicator setup (at least, judging from how the engineer is struggling with a job he clearly knows how to otherwise do), the ones he's jury-rigged from materials scrounged from the surrounding markets are so inefficient that the data-probe he's using has been diagnosing some kind of data stream interactions (the rest of the information is blocked by the engineer's hunched-over body) has taken a full hour to complete. Even you, an amateur engineer with experience gained from spaceship repair work on New Boston, know a good data-probe would've been done in a quarter of the time!`
-			`As for the Poseidon Industries engineer, his 'supervising' is merely looking over the Corps engineer's work and making notes, not even bothering to help.`
-			`Lt. Sanders, despite seeing this travesty of engineering work, walks up as though nothing was wrong. "Hello, gentlemen. My name is Lt. James Sanders with the Republic Navy Squadron #234. I am here to assist you in the repair of the replicators." Both engineers are startled by the sound of another voice.
-			`The Corps engineer, upon processing what he just heard, turns his frustrated scowl into a pleasant smile, and mutters, "Thank God!" He gets up, brushes off his primary hand, and walks over to the Lieutennant to introduce himself and shake his hand. The Poseidon Industries engineer walks in front of the Corps engineer. With a business-like look on his face, he greets Lt. Sanders with a smile, saying, "Hello, Lt. Sanders. My name is Franklin Fargass, and I represent Poseidon Industries' engineering team in this matter."
+			`	You follow Lt. Sanders and the small crew of spaceport workers transporting the cargo along the winding paths to the main population center. There you see the Humanitarian Corps engineer trying to repair a replicator, with the Poseidon Industries engineer supervising.` 
+			`Upon getting closer, it becomes clear why the replicators have been so difficult to repair. The Corps engineer hasn't been given the right tools for the job, having to use his own, jury-rigged ones instead, and the Poseidon Industries engineer is merely looking over the Corps engineer's work and making notes, not even bothering to help.`
+			`Lt. Sanders, despite seeing this travesty of engineering work, walks up and introduces himself as though nothing was wrong.`
+			`The Poseidon Industries engineer walks in front of the Corps engineer, who looks almost desprate to shake the Lieutennant's hand off in gratitude. With a business-like look on his face, he greets Lt. Sanders with a smile, saying, "Hello, Lt. Sanders. My name is Franklin Fargass, and I represent Poseidon Industries' engineering team in this matter."
 			`"So I see," Lt. Sanders says in an unimpressed tone. "We have the <cargo> you requested." "Splendid!" Franklin responds. Accompanied by a gesture, he tells the starport workers, "Well, bring the cargo here already!" Lt. Sanders countermands the order with a simple "Stay."
-			`Franklin, confused as to my the Lieutennant would stop the completion of the delivery, tells the spaceport workers to continue, with Lt. Sanders countermanding again. Now annoyed at this, Franklin says, "Lieutennant, why are you contradicting my orders? We need those <cargo>!"`
+			choice
+				`	[Continue...]`
+			`Franklin, confused as to my the Lieutennant would stop the completion of the delivery, say "Lieutennant, why are you contradicting my orders? We need those <cargo>!"`
 			`"Because <cargo> are not needed to fix these replicators," Lt. Sanders says, still unimpressed with the corporate engineer. "That is akin to installing maneuvering thrusters on a ship which needs better foward acceleration. You need the right tools - which you clearly do not."`
-			`"I'm afraid you've forgotten your first-level engineer training, Lieutennant," Franklin says in a patronizing tone. He then goes into detail all the things any engineer worth his engine fluids knows.`
-			`As the conversation continues, and the Posideon Industries 'engineer' continues his demonstration of his grasp of stall tactics and lack of actual engineering knowledge, you get the feeling the replicators aren't going to be fixed anytime soon.`
+			`As the conversation continues, the Posideon Industries 'engineer' demonstrates of his grasp of stall tactics and lack of actual engineering knowledge.` 
+			`You get the feeling the replicators aren't going to be fixed anytime soon.`
 			choice
 				`	[Continue listening.]
 				`	[Interviene on the Corps engineer's behalf.]
 					goto sick_of_this_garbage1
-			`After an hour of Franklin and Lt. Sanders arguing over contract specifics, how replicators work, and other topics only related to spreading corporate red tape, Franklin finally tires of the conversation. "I'm sorry to see you won't see reason," he says in a weary, resolute tone. "I'm afraid I'll have to ask you to leave so we can actually get some work done here."`
-			`Lt. Sanders lifts an old-fashioned audio recorder from his pocket and shows it to Franklin. Lt. Sanders then replies, "I'm sorry to see Posideon Industries is not interested in helping the Republic do the job it set out to do." Franklin's expression turns to shock with a hint of panic.`
-			`"I'm afraid I'll have to report you to General Seymour South, the commanding officer for this humanitarian effort," the Lieutennant says with a smile. "He will be most intersted to hear Posideon Industries has assigned a lawyer to do an engineer's job." Franklin, having re-gained his composure, casually retorts with a tone and look of amusement. "You know audio is only half the picture. You'll never be able to convince Gen. South with an obsolete bit of tech. Too easy to hack."`
+			`	After an hour of Franklin and Lt. Sanders arguing over contract specifics, how replicators work, and other topics only related to spreading corporate red tape, Franklin finally tires of the conversation and asks you and the Lieutennant to leave.`
+			`	Lt. Sanders lifts an old-fashioned audio recorder from his pocket and shows it to Franklin. Lt. Sanders then replies, "I'm sorry to see Posideon Industries is not interested in helping the Republic do the job it set out to do." Franklin's expression turns to shock with a hint of panic.`
+			`	"I'm afraid I'll have to report you to General Seymour South, the commanding officer for this humanitarian effort," the Lieutennant says with a smile. "He will be most intersted to hear Posideon Industries has assigned a lawyer to do an engineer's job." Franklin, having re-gained his composure, casually retorts with a tone and look of amusement. "You know audio is only half the picture. You'll never be able to convince Gen. South with an obsolete bit of tech. Too easy to hack."`
 			`"Perhaps not," Lt. Sanders replies, "but it is better than no evidence at all."`
-			`With that, he tells you to return to the ship; you do, and he follows, leaving Franklin with his cargo.`
-			`As you travel back along the twisting roads, you think about asking Lt. Sanders about what the heck went on back there. You look at him, only for him to return your look with one which says, "Don't ask."`
 				payment 45000
 				goto "cargo2_end"
 			label sick_of_this_garbage
+				set "Gettems contract breach"
 				set "reputation: free worlds" + 10
-				set "reputation: republic" - 30
-			`While Franklin and the Lieutennant are busy arguing semantics, you stealtily take the tools the Corps engineer needs out of the Lt. Sanders' toolkit, casually walk around the arguing duo, and give the tools to the Corps engineer.`
-			`"Take these," you tell the engineer, offering them to him. The Corps engineer turns and gives you a shocked surprise look which says "what are you doing, idiot?" You persist, eventually wearning down the engineer. He takes the tools, and you walk back to Franklin and Lt. Sanders, now arguing over the basic operation of replicators.`
-			`You find a good place to sit back and relax, knowing the replicators will be online in a few moments. Sure enough, with Lt. Sanders' tools, the first replicator comes on-line, with its normally-inconsiquential startup noise startling both Franklin and the Lieutennant.`
-			`"Fantastic work, Lt. Markoff!" Franklin says to the Corps engineer. As he walks over to him, Franklin begins to ask what was causing all the previous hitches.`
-			`Then Franklin sees the Gettems squadron insignia on the tools Lt. Markoff used.`
-			`Franklin's face tunrs to rage, and he angrily marches over to you, points a finger at you, and angrily yells, "I knew it! I knew there was a reason Lt. Sanders brought you along! It was so he could walk around Posideon Industries and fix the problem his way." Turning to Lt. Sanders, he says, "How dare you. I'll be sure to have a word with your commanding officer regarding your subterfuge."`
-			`With that, Franklin storms off. You can't help but feel he was feigning that anger, but you also can't shake the feeling his threats were very, very real.`
-			`Lt. Sanders looks at you with a face filled with genuine anger. "Get back to the ship NOW!" he barks at you while signaling the spaceport workers to put the electronics on the local market.`
-			`The walk back to the ship is an awkward one for you as the Lieutennant chews you out for your actions.`
+				set "reputation: republic" - 15
+			`	While Franklin and the Lieutennant are busy arguing semantics, you stealtily take the tools the Corps engineer needs out of the Lt. Sanders' toolkit, casually walk around the arguing duo, and give the tools to the Corps engineer.`
+			`	"Take these," you tell the engineer, offering them to him. The Corps engineer turns and gives you a shocked surprise look which says "what are you doing, idiot?" You persist, eventually wearning down the engineer. He takes the tools, and you walk back to Franklin and Lt. Sanders, now arguing over the basic operation of replicators.`
+			`	You find a good place to sit back and relax, knowing the replicators will be online in a few moments. Sure enough, with Lt. Sanders' tools, the first replicator comes on-line, with its normally-inconsiquential startup noise startling both Franklin and the Lieutennant.`
+			`	"Fantastic work, Lt. Markoff!" Franklin says to the Corps engineer. As he walks over to him, Franklin begins to ask what was causing all the previous hitches.`
+			`	Then Franklin sees the Gettems squadron insignia on the tools Lt. Markoff used.`
+			choice
+				` [Continue...]`
+			`	Franklin's face tunrs to rage, and he angrily marches over to you, points a finger at you, and angrily yells, "I knew it! I knew there was a reason Lt. Sanders brought you along! It was so he could walk around Posideon Industries and fix the problem his way." Turning to Lt. Sanders, he says, "How dare you. I'll be sure to have a word with your commanding officer regarding your subterfuge."`
+			`	With that, Franklin storms off. Lt. Sanders looks at you with a face filled with genuine anger. "Get back to the ship NOW!" he barks at you while signaling the spaceport workers to put the electronics on the local market.`
+			choice
+				`	[Continue...]`
+			`	The walk back to the ship is an awkward one for you as the Lieutennant chews you out for your actions.`
 			`Lt. Sanders breaks the silence. "Do you know what you just did, Captain <last>?"`
 			choice
+				`	"I did what I felt was right."`
+					goto "cargo2_alternate_end"
 				`	"I saved the locals from enslavement by Posideon Industries!"`
 					goto "cargo2_how_you_know_that"
 				`	"I ensured Lt. Markoff could finish his work and get the villagers the food they needed."`
 					goto "cargo2_alternate_end"
-				`	"I did what I felt was right."`
-					goto "cargo2_alternate_end"
 			label cargo2_how_you_know_that
-			`"And how do you know that's what they would do?" Lt. Sanders retorts. "And let me guess - you think they engineered the disaster. I have news for you - they didn't. It was a natural disaster caused by a seaquake opening up a fissure to a previously-hidden deposit of nitrous oxide. All that gas leaked into the nearby ecosystems, killing off much of the local wildlife. So no, you didn't 'save' the locals."
+			`	"And how do you know that's what they would do?" Lt. Sanders retorts. "And let me guess - you think they engineered the disaster. I have news for you - they didn't. It was a natural disaster caused by a seaquake opening up a fissure to a previously-hidden deposit of nitrous oxide. All that gas leaked into the nearby ecosystems, killing off much of the local wildlife. So no, you didn't 'save' the locals."
 			label cargo2_alternate_end
-			`"What you did was ensure I get a reprimand for something YOU did and ensure Posideon Industries has a convenient cover story for their illict actions!" He then pulls out a concealed, old-fashioned audio recorder from one of his uniform's pockets. "I could have aquired evidence to, at the very least, get Lt. Markoff some halfway-decent tools so the job wouldn't take so long. Now I have nothing to show but your foolish actions."`
-			`Once you reach the ship, you find an automated message telling you that due to a breach of contract, your pay for this mission has been suspended and your contract with the Gettems terminated.`
-			`This day just keeps getting better and better.`
-				set "Gettems contract breach"
+			`	"What you did was ensure I get a reprimand for something YOU did and ensure Posideon Industries has a convenient cover story for their illict actions!" He then pulls out a concealed, old-fashioned audio recorder from one of his uniform's pockets. "I could have aquired evidence to, at the very least, get Lt. Markoff some halfway-decent tools so the job wouldn't take so long. Now I have nothing to show but your foolish actions."`
+			choice
+				`	[Continue...]`
+			`	Once you reach the ship, you find an automated message telling you that due to a breach of contract, your pay for this mission has been suspended and your contract with the Gettems terminated.`
+			`	This day just keeps getting better and better.`
 			label cargo2_end
-			
-	on fail
-		branch cargo2b_endera
-			has "event: war begins"
-		
-		label "cargo2b_endera"
-		dialog "End of an Era"
 
 mission "Cargo Run 3"
 	name "Travel to <planet>"
@@ -423,31 +402,27 @@ mission "Cargo Run 3"
 			not "planet: Martini"
 		not "event: war begins"
 		not "Gettems contract breach"
-	to fail
-		has "event: war begins"
+	to complete
+		not "event: war begins"
 	on offer
 		conversation
-			`As you exit your ship on <origin>, you find Cmd. Malcom waiting for you on the docking platform. To your surprise, he's dressed in the decedant formalware which Republic Navy officers ware during more formal occassions. Frills, pomps, pockets, and other such accessories are tastefully arranged on the commander's suit, along with a slew of commendation pips. The suit itself is made from real silk, and featuers wooden buttons made from bark of a variety you don't recognize. On his head is a commander's cap, which is just as decedantly-made as the rest of the commander's ensemble.`
-			`"Hello again, Captain <last>!" Malcom says in a pleasent tone. "I need some cargo moved through the Southern Belt. I can't really tell you here, so I'll have a friend of mine explain when you arrive."`
+			`As you exit your ship on <origin>, you find Cmd. Malcom waiting for you on the docking platform. To your surprise, he's dressed in the decedant formalware which Republic Navy officers ware during more formal occassions.`
+			`	"Hello again, Captain <last>!" Malcom says in a pleasent tone. "I need some cargo moved through the Southern Belt. I can't really tell you here, so I'll have a friend of mine explain when you arrive."`
 			`He then gets close to you and whispers, "I can't explain much here."`
 			`"Are you interested?"`
 			choice  
 				`	"Yes."`
 					goto "cargo3_accept"
 				`	"No."`
-			`"Understood," Malcom dissapointingly replies. You exit your spaceship as he walks away.`
+			`	"Understood," Malcom dissapointingly replies. You exit your spaceship as he walks away.`
 				decline
 			label cargo3_accept
-			`"Excellent!" Malcom replies. "Travel to <destination>, and you'll be told more. Unfortunately, the timetable is quite short, <day>."`
+			`	"Excellent!" Malcom replies. "Travel to <destination>, and you'll be told more. Unfortunately, the timetable is quite short, <day>."`
 				accept
 	on complete
 		dialog
 			`You reiceve a pre-recorded message: "Greetings, Captain. My name is Commander Talburn Smith of Republic Navy squadron #35, codename 'Gold Kings'. We will be escorting you and several other cargo ships through the southern belt to reundeveus with Republic allies. Please meet me in the spaceport when you're ready."`
-	on fail
-		branch cargo3_endera
-			has "event: war begins"
-		label "cargo3_endera"
-			dialog "End of an Era"
+
 mission "Cargo Run 3B"
 	name "Travel to Enif"
 	description "Deliver <cargo> to <destination>."
@@ -460,118 +435,125 @@ mission "Cargo Run 3B"
 		not "event: war begins"
 		has "Cargo Run 3: done"
 	npc 
-	government "republic"
-	personality timid
-	system
-	fleet "Large Core Merchants"
+		government "republic"
+		personality timid
+		system
+		fleet "Large Core Merchants"
 	npc 
-	government "republic"
-	personality heroic
-	confusion 2
-	system
-	fleet "Small Republic"
-npc
-	government "pirates"
-	personality entering disables
-	system "Tarazed"
-	fleet "Large Southern Pirates"
-npc
-	government "Quarg"
-	personality waiting heroic
-	system "Enif"
-	fleet "Large Quarg"
+		government "republic"
+		personality heroic
+		confusion 2
+		system
+		fleet "Small Republic"
+	npc
+		government "pirates"
+		personality entering disables
+		system "Tarazed"
+		fleet "Large Southern Pirates"
+	npc
+		government "Quarg"
+		personality waiting heroic
+		system "Enif"
+		fleet "Large Quarg"
 	on offer 
 		conversation
 			`You enter the spaceport, where you see a man dressed in Republic Navy formalware similar to Cmd. Malcom's and escorted by 5 well-armed Navy soldiers. He walks over to you, shakes your hand, and says, "Greetings, Captian <last>. I am Commander Talburn Smith of Republic Navy squadron #35, codename 'Gold Kings'. As I see you recieved my message, I will not be repeating myself. If you could please follow me, I will take you to our meeting place."`
-			`You follow the commander through the spaceport, taking every opportunity to marvel at the outside view. It's an astounding view, filled with the most amazing architechture you've ever seen, the clearest water, and...well, what you'd expect from a paradise world.`
-			`After passing through several military checkpoints, you reach a private shuttle dock, which has a top-of-the-line planetary shuttle, easily costing over 100 billion credits, waiting for passengers.`
+			`	You follow the commander through the spaceport, taking every opportunity to marvel at the outside view only a Paradise world can offer.`
+			`	After passing through several military checkpoints, you reach a private shuttle dock, which has a top-of-the-line planetary shuttle, easily costing over 100 billion credits, waiting for passengers.`
 			choice
 				`	[Continue walking]
 					goto "cargo3b_more"
 				`	"Nice shuttle."
-			`"Around here, it's average," Talburn matter-of-factly replies. "In fact, this particular shuttle is going to be phased out tomorrow with a brand-new model."
-			`"How old is this shuttle type?" you ask.`
-			`"Three weeks," he replies.`
+			`	"Around here, it's average," Talburn matter-of-factly replies. "In fact, this particular shuttle is going to be phased out tomorrow with a brand-new model."
+			`	"How old is this shuttle type?" you ask.`
+			`	"Three weeks," he replies.`
+			choice
+				`	[Continue...]`
 			label cargo3b_more
-			`As you enter the shuttle, you marvel at its posh interior. Despite being designed to house four people (five if you count the pilot), it has a full kitchenette, massive couches, an F-SENSE total sensory entertainment system, gold and exotic metal frills and decorations....`
-			`"Woah there!" Talburn says as he pulls you away from the F-SENSE control panel you were about to trip over. "I know this is a lot to take in, but pay attention!"`
-			`The commander indicates to you where to sit, and as you do so, he sits directly opposite to you. You almost zone out as your body experiences a level of comfort never had before, but not wanting to embarass yourself further, you bring yourself out of it.`
-			`With a gesture from Talburn, the F-SENSE system comes to life, and he commenses your briefing:` 
-			`"You and your fellow cargo pilots will be delivering a large amount of currency to our Quarg allies at <destination>, near the edge of the Rim."`
+			`	As you enter the shuttle, you marvel at its posh interior.`
+			`	The commander indicates to you where to sit, and as you do so, he sits directly opposite to you.`
+			`	With a gesture from Talburn, the F-SENSE entertainment system comes to life, and he commenses your briefing:` 
+			`	"You and your fellow cargo pilots will be delivering a large amount of currency to our Quarg allies at <destination>, near the edge of the Rim."`
 			branch cargo3b_quarg
 				has "First Contact: Quarg: offered"
-			`You look at the commander with a very confused look, saying, "Quarg?"`
-			`"Aliens, Captain," Talburn says in an annoyed tone, "They live on the southern edge of the Rim, and have done so since before man rose to sentience." Still observing confusion on your face, he quizzes you in a concerned tone, "Grey skin, backwards legs, average height of 2.5 meters...have you really never heard of them?"`
-			choice
-				`	"I have, sir, but I didn't realize we were allies with them."`
-				`	"I have, but I guess I'm still getting used to all this high technology."`
-			`Talburn sighs and shakes his head; then, after a short pause, he continues.`
+			`	You look at the commander with a very confused look, saying, "Quarg?"`
+			`	Talburn sighs and shakes his head and sighs; then, after a short pause, he continues.`
 			label cargo3b_quarg
-			`"You have until <day> to reach <system>, where you will transfer the <cargo> on your ship to the Quarg and then be paid <payment>. Due to the lack of Republic security in the Southern Belt, you and your fellow pilots will be escorted by the Gold Kings and a large contingent of fighters from the Core Worlds Merchant Guild."`
+			`	"You have until <day> to reach <system>, where you will transfer the <cargo> on your ship to the Quarg and then be paid <payment>. Due to the lack of Republic security in the Southern Belt, you and your fellow pilots will be escorted by the Gold Kings and a large contingent of fighters from the Core Worlds Merchant Guild."`
 			label cargo3b_questions
 			`"Any questions?"`
 		
 			choice
+				`	"None, sir."`
+					goto "cargo3b_arrival"
 				`	"What use do the Quarg have for all this money?"`
 					goto "cargo3b_classified"
 				`	"Will I be responsible to help defend my fellow cargo pilots?"`
 					goto "cargo3b_notresponsible"
 				`	"What happens if I'm the only remaining cargo ship?"`
 				goto "cargo3b_surviveifyoumust"
-				`	"None, sir."`
-					goto "cargo3b_arrival"
 			label cargo3b_classified
-			`"That's classified, Captain, and your contract doesn't give you the required clearence. Now..."`
+			`	"That's classified, Captain, and your contract doesn't give you the required clearence. Now..."`
 				goto "cargo3b_questions"
 			label cargo3b_notresponsible
-			`"No, and I would not recommend it as we expect interference from heavily-armed pirates, thieves, and other misbegottens. That said..."`
+			`	"No, and I would not recommend it as we expect interference from heavily-armed pirates, thieves, and other misbegottens. That said..."`
 				goto "cargo3b_questions"
 			label cargo3b_surviveifyoumust
-			`"As unlikely as that will be, in the event of overwhelming forces which your escort cannot confront, you are required to reach <system> at all costs within the time limit - even if you are the only remaining pilot."`
-			`"If - and I do mean if - we are overwhelmed, the Quarg have assured us they will scramble a sufficiently-large strike force to intercept and destroy the enemy. With that out of the way..."`
+			`	"As unlikely as that will be, in the event of overwhelming forces which your escort cannot confront, you are required to reach <system> at all costs within the time limit - even if you are the only remaining pilot. Anything else?"`
 				goto "cargo3b_questions"
 			label cargo3b_arrival
-			`The shuttle arrives at a point in near-<origin> orbit, where you see a massive fleet of ships the likes of which you've only seen in movies. Cargo ships of all sizes are lined up in formation, with an equivalent amount of Republic and Core Guild fighters readying for escort duties.`
-			`The shuttle proceeds to move up to your ship, which has been relocated by some means (likely automated) to its current position. As it begins to connect its walkway to your ship, the commander comes over to you, shakes your hand, and says, "Good luck, Captain <last>! Remember, if your escort is overwhelmed, keep heading to <system>!"
+			`	The shuttle arrives at a point in near-<origin> orbit, where you see a massive fleet of ships the likes of which you've only seen in movies.`
+			`	The shuttle proceeds to move up to your ship, which has been relocated by some means (likely automated) to its current position. As it begins to connect its walkway to your ship, the commander comes over to you, shakes your hand, and says, "Good luck, Captain <last>! Remember, if your escort is overwhelmed, keep heading to <system>!"
 				accept
 	on enter "Tarazed"
 		conversation
 			`As you exit hyperspace and enter the Tarazed system, you see a massive pirate force awaiting you. How they managed to evade the Quarg is beyond you, but you do know the cargo run is in serious jeporardy.`
-			`"Attention all ships!" one of the ships announces via a forced hail, "Surrender your cargo now and you will not be harmed."`
+			`	"Attention all ships!" one of the ships announces via a forced hail, "Surrender your cargo now and you will not be harmed."`
 			`You decide to answer the hail with...` 
 			choice
-				`	...a "Yes."`
-					goto "cargo3b_surrendered"
 				`	...a "No."`
 				`	...silence. (Ignore the hail.)
+				`	...a "Yes."`
+					goto "cargo3b_surrendered"
 			goto "cargo3b_fighton"
 			label cargo3b_surrendered
-			`"What are you thinking, Captain?!" Cmd. Talbart screams at you via hail. "You are to complete this mission at all costs!"` 
-			`"Very well - since you wish to go rogue, so be it; but know that you will feel the wrath of the Core Guild and the Republic for you actions."`
+			`	"What are you thinking, Captain?!" Cmd. Talbart screams at you via hail. "You are to complete this mission at all costs! Very well, if you're going to be an idiot, Captian, than you shall die like one."`
 				"reputation: Republic" -100
 				"reputation: Merchants" -100
 				set "Gettems contract breach"
 				fail
 			label cargo3b_fighton
-	on enter "Tarazed"
-		dialog
-			`As you enter Tarazed, you find a large Quarg fleet waiting for you. "Greetings, Captian <last>," one of the ships broadcasts. "We see you have made it this far despite interference. Do not worry - we shall ensure those who would oppose your mission are dealt with promptly."`
 	on complete
 		payment 65000
 		conversation
-			`As you enter <system>, you are amazed at the sight which is before you. You see two massive quarter-toruses orbiting the star, each with a deep hollow section. Judging from the scaffolding, it looks like the toruses will eventually be merged into one. You also see a large fleet of Quarg ships leaving a mysterious cube orbiting the star and heading towards what's left of the cargo run.`
-			`"Greetings, human friends," the cube broadcasts to all ships. "We are pleased you have made it this far despite interference. Allow us to aid you in eliminating the source of it as we transfer the cargo to our ships. Will Commander Talbart please explain to you what is needed for the latter to occur?"`
-			`Talbart broadcasts to all ships in the cargo run, "This is going to seem bizarre, but you'll need to transmit your shield frequencies to the Quarg construction hub - the giant space cube - in order for them to get at the cargo. The Quarg have technology which enables them to teleport objects through shields provided they know the frequencies of those shields."`
-			`Once Talbart transmits the hailing frequency needed, you send your sheild frequencies to the Quarg. You then feel the ship lurch as the <cargo> is suddenly removed from the ship by the Quarg technology.`
-			`After a moment, the Quarg cube transmits, "These ones thank you for your service and bravery. May your return journey be safe!"`
+			`As you enter <system>, you see a massive Quarg fleet waiting for you. "Greetings, human friends," they broadcast. "We are pleased you have made it this far despite interference. Allow us to aid you in eliminating the source of it as we transfer the cargo to our ships."`			
+			`	You feel the ship lurch as the <cargo> is suddenly removed from the ship! How the Quarg did it, through shields, is something which does not set well in your mind.`
+			`	After a moment, the Quarg transmit, "These ones thank you for your service and bravery. May your return journey be safe!"`
 			branch "cargo3b_warweredeclared"
 				has "event: war begins"
-			`"Excellent work, everyone!" Cmd. Talbart happily broadcasts to the cargo run's remaining ships. "Your payment has been transmitted to your accounts. We'll stick around to ensure you can return safely."`
+			`	"Excellent work, everyone!" Cmd. Talbart happily broadcasts to the cargo run's remaining ships. "Your payment has been transmitted to your accounts. We'll stick around to ensure you can return safely."`
 				goto "cargo3b_end"
 			label cargo3b_warweredeclared
-				`"Excellent work, everyone." Cmd. Talbart matter-of-factly broadcasts to the cargo run's remaining ships. "Your payment has been transmitted to your accounts. We'll stick around to ensure you can return safely."`
-				`"Unfortunately, as some of you may have seen already, the Southern Mutual Defense Pact is now calling themselves the Free Worlds and, as a show of power, have bombed several key Republic planets using nuclear weapons. As such, the Republic is in a state of war and is terminating all civilian contracts. Those of you who have civilian contracts with the Republic Navy will need to re-apply for contracts."`
+				`	"Excellent work, everyone." Cmd. Talbart matter-of-factly broadcasts to the cargo run's remaining ships. "Your payment has been transmitted to your accounts. We'll stick around to ensure you can return safely."`
+				`	"Unfortunately, as some of you may have seen or heard already, the Southern Mutual Defense Pact is now calling themselves the Free Worlds and, as a show of power, have bombed several key Republic planets using nuclear weapons. As such, the Republic is in a state of war and is terminating all civilian contracts. Those of you who have civilian contracts with the Republic Navy will need to re-apply for contracts."`
 			label cargo3b_end
 
-dialog "End of an Era"
-	`You recieve an incoming hail from the Republic Navy stating all independent contracts with the Navy have been terminated due to several terrorist attacks on key Republic planets and assets. It looks like you'll need to either find a new Republic contract, or look elsewhere.`
+mission "End of an Era"
+	hidden
+	landing
+	to offer
+		has "event: war begins"
+		or
+			or
+				has "Cargo Run 0[Outside Alpha Centauri]: active"
+				or
+					has "Cargo Run 1: active"
+					has "Cargo Run 2A: active"
+			or
+				or
+					has "Cargo Run 2B: active"
+					has "Cargo Run 3: active"
+	on offer
+		dialog
+			`You recieve an incoming hail from the Republic Navy stating all independent contracts with the Navy have been terminated due to several terrorist attacks on key Republic planets and assets. It looks like you'll need to either find a new Republic contract, or look elsewhere.`
+		decline
