@@ -159,7 +159,7 @@ void Mission::Load(const DataNode &node)
 		else if(child.Token(0) == "on" && child.Size() >= 3 && child.Token(1) == "enter")
 		{
 			MissionAction &action = onEnter[GameData::Systems().Get(child.Token(2))];
-			action.Load(child);
+			action.Load(child, name);
 		}
 		else if(child.Token(0) == "on" && child.Size() >= 2)
 		{
@@ -172,7 +172,7 @@ void Mission::Load(const DataNode &node)
 				{"visit", VISIT}};
 			auto it = trigger.find(child.Token(1));
 			if(it != trigger.end())
-				actions[it->second].Load(child);
+				actions[it->second].Load(child, name);
 		}
 	}
 	
@@ -675,6 +675,16 @@ void Mission::Do(const ShipEvent &event, PlayerInfo &player, UI *ui)
 
 
 
+// Get the internal name used for this mission. This name is unique and is
+// never modified by string substitution, so it can be used in condition
+// variables, etc.
+const string &Mission::Identifier() const
+{
+	return name;
+}
+
+
+
 // "Instantiate" a mission by replacing randomly selected values and places
 // with a single choice, and then replacing any wildcard text as well.
 Mission Mission::Instantiate(const PlayerInfo &player) const
@@ -795,7 +805,7 @@ Mission Mission::Instantiate(const PlayerInfo &player) const
 	subs["<tons>"] = to_string(result.cargoSize) + (result.cargoSize == 1 ? " ton" : " tons");
 	subs["<cargo>"] = subs["<tons>"] + " of " + subs["<commodity>"];
 	subs["<bunks>"] = to_string(result.passengers);
-	subs["<passengers>"] = (result.passengers == 1) ? "your passenger" : "your passengers";
+	subs["<passengers>"] = (result.passengers == 1) ? "passenger" : "passengers";
 	subs["<fare>"] = (result.passengers == 1) ? "a passenger" : (subs["<bunks>"] + " passengers");
 	if(player.GetPlanet())
 		subs["<origin>"] = player.GetPlanet()->Name();

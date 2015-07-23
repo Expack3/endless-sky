@@ -346,7 +346,12 @@ void AI::Step(const list<shared_ptr<Ship>> &ships, const PlayerInfo &player)
 		else if(!parent || parent->IsDestroyed() || (parent->IsDisabled() && !isPlayerEscort))
 			MoveIndependent(*it, command);
 		else if(parent->GetSystem() != it->GetSystem())
-			MoveEscort(*it, command);
+		{
+			if(personality.IsStaying())
+				MoveIndependent(*it, command);
+			else
+				MoveEscort(*it, command);
+		}
 		// From here down, we're only dealing with ships that have a "parent"
 		// which is in the same system as them. If you're an enemy of your
 		// "parent," you don't take orders from them.
@@ -1352,10 +1357,11 @@ void AI::MovePlayer(Ship &ship, const PlayerInfo &player, const list<shared_ptr<
 	else if(keyDown.Has(Command::BOARD))
 	{
 		shared_ptr<const Ship> target = ship.GetTargetShip();
-		if(!target || !target->IsDisabled() || target->IsDestroyed())
+		if(!target || !target->IsDisabled() || target->IsDestroyed() || target->GetSystem() != ship.GetSystem())
 		{
 			double closest = numeric_limits<double>::infinity();
 			bool foundEnemy = false;
+			bool foundAnything = false;
 			for(const shared_ptr<Ship> &other : ships)
 				if(other->IsTargetable() && other->IsDisabled() && !other->IsDestroyed())
 				{
@@ -1365,9 +1371,12 @@ void AI::MovePlayer(Ship &ship, const PlayerInfo &player, const list<shared_ptr<
 					{
 						closest = d;
 						foundEnemy = isEnemy;
+						foundAnything = true;
 						ship.SetTargetShip(other);
 					}
 				}
+			if(!foundAnything)
+				keyDown.Clear(Command::BOARD);
 		}
 	}
 	else if(keyDown.Has(Command::LAND))
@@ -1577,8 +1586,13 @@ void AI::MovePlayer(Ship &ship, const PlayerInfo &player, const list<shared_ptr<
 	else if(keyStuck.Has(Command::BOARD) && ship.GetTargetShip())
 	{
 		shared_ptr<const Ship> target = ship.GetTargetShip();
-		MoveTo(ship, command, target->Position(), 40., .8);
-		command |= Command::BOARD;
+		if(!target || !target->IsTargetable() || !target->IsDisabled() || target->IsDestroyed())
+			keyStuck.Clear(Command::BOARD);
+		else
+		{
+			MoveTo(ship, command, target->Position(), 40., .8);
+			command |= Command::BOARD;
+		}
 	}
 	
 	if(isLaunching)
