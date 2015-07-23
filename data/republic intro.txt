@@ -326,8 +326,16 @@ mission "Cargo Run 2B"
 			label cargo2b_interested
 			`	Once again, Malcom gives you a handshake, a hearty smile, and sends you off on your mission.`
 				accept
-	on complete
-		conversation
+
+mission "Cargo Run 2C"
+	invisible
+	deadline 1
+	to complete
+		never
+	on accept
+		payment 45000
+	on offer
+			conversation
 			`You arrive at <planet> and drop off the cargo and Lt. Sanders. "Thanks for the lift," he says as he exits the ship. "If you'd like, you can tag along and see some of the more exciting Gettems work."`
 			choice
 				`	"No thanks."
@@ -352,7 +360,7 @@ mission "Cargo Run 2B"
 			`	Lt. Sanders lifts an old-fashioned audio recorder from his pocket and shows it to Franklin. Lt. Sanders then replies, "I'm sorry to see Posideon Industries is not interested in helping the Republic do the job it set out to do." Franklin's expression turns to shock with a hint of panic.`
 			`	"I'm afraid I'll have to report you to General Seymour South, the commanding officer for this humanitarian effort," the Lieutennant says with a smile. "He will be most intersted to hear Posideon Industries has assigned a lawyer to do an engineer's job." Franklin, having re-gained his composure, casually retorts with a tone and look of amusement. "You know audio is only half the picture. You'll never be able to convince Gen. South with an obsolete bit of tech. Too easy to hack."`
 			`"Perhaps not," Lt. Sanders replies, "but it is better than no evidence at all."`
-				payment 45000
+				accept
 				goto "cargo2_end"
 			label sick_of_this_garbage
 				set "Gettems contract breach"
